@@ -1,184 +1,206 @@
-.counter {
-  font-size: 16px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  color: var(--accent);
-  background: var(--accent-bg);
-  border: 2px solid transparent;
-  transition: border-color 0.3s;
-  margin-bottom: 24px;
-
-  &:hover {
-    border-color: var(--accent-border);
-  }
-  &:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
+/* RESET */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #34114D;
 }
 
-.hero {
-  position: relative;
-
-  .base,
-  .framework,
-  .vite {
-    inset-inline: 0;
-    margin: 0 auto;
-  }
-
-  .base {
-    width: 170px;
-    position: relative;
-    z-index: 0;
-  }
-
-  .framework,
-  .vite {
-    position: absolute;
-  }
-
-  .framework {
-    z-index: 1;
-    top: 34px;
-    height: 28px;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
-      scale(1.4);
-  }
-
-  .vite {
-    z-index: 0;
-    top: 107px;
-    height: 26px;
-    width: auto;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
-      scale(0.8);
-  }
-}
-
-#center {
+/* CONTAINER GERAL */
+.container {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  gap: 25px;
-  place-content: center;
-  place-items: center;
-  flex-grow: 1;
-
-  @media (max-width: 1024px) {
-    padding: 32px 20px 24px;
-    gap: 18px;
-  }
+  align-items: center;
+  padding: 40px 20px;
 }
 
-#next-steps {
-  display: flex;
-  border-top: 1px solid var(--border);
-  text-align: left;
-
-  & > div {
-    flex: 1 1 0;
-    padding: 32px;
-    @media (max-width: 1024px) {
-      padding: 24px 20px;
-    }
-  }
-
-  .icon {
-    margin-bottom: 16px;
-    width: 22px;
-    height: 22px;
-  }
-
-  @media (max-width: 1024px) {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-
-#docs {
-  border-right: 1px solid var(--border);
-
-  @media (max-width: 1024px) {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-  }
-}
-
-#next-steps ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  gap: 8px;
-  margin: 32px 0 0;
-
-  .logo {
-    height: 18px;
-  }
-
-  a {
-    color: var(--text-h);
-    font-size: 16px;
-    border-radius: 6px;
-    background: var(--social-bg);
-    display: flex;
-    padding: 6px 12px;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    transition: box-shadow 0.3s;
-
-    &:hover {
-      box-shadow: var(--shadow);
-    }
-    .button-icon {
-      height: 18px;
-      width: 18px;
-    }
-  }
-
-  @media (max-width: 1024px) {
-    margin-top: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    li {
-      flex: 1 1 calc(50% - 8px);
-    }
-
-    a {
-      width: 100%;
-      justify-content: center;
-      box-sizing: border-box;
-    }
-  }
-}
-
-#spacer {
-  height: 88px;
-  border-top: 1px solid var(--border);
-  @media (max-width: 1024px) {
-    height: 48px;
-  }
-}
-
-.ticks {
-  position: relative;
+/* HEADER */
+.header {
   width: 100%;
+  max-width: 900px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* 👈 alinha tudo à esquerda */
+}
 
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: -4.5px;
-    border: 5px solid transparent;
-  }
+.header h1 {
+  color: #fff;
+  margin-bottom: 1em; /* 👈 menos espaço */
+}
 
-  &::before {
-    left: 0;
-    border-left-color: var(--border);
+.header input {
+  width: 100%;
+  max-width: 420px; /* 👈 tamanho igual ao card */
+  padding: 12px;
+  border-radius: 30px;
+  border: none;
+  background: #d9d9c8;
+  color: #000;
+  font-size: 14px;
+}
+
+.inputs-endereco {
+  display: flex;
+  gap: 10px;
+}
+
+.inputs-endereco input {
+  flex: 1;
+}
+
+/* CONTEÚDO (RESULTADO + HISTÓRICO) */
+.content {
+  display: flex;
+  gap: 30px;
+  width: 100%;
+  max-width: 900px;
+  margin-bottom: 20px;
+}
+
+/* CARD PADRÃO */
+.card {
+  flex: 1;
+  background: linear-gradient(180deg, #8a02a3, #550162);
+  padding: 25px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER DO CARD */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.card-header h2 {
+  color: #fff;
+  margin: 0;
+}
+
+/* BOTÃO */
+.card-header button {
+  background: #dc2626; /* vermelho */
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+/* estado após copiar */
+.card-header button.copiado {
+  background: #16a34a; /* verde */
+}
+
+/* CORPO DO CARD */
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+/* ITENS DE INFO */
+.info-item span {
+  font-size: 12px;
+  color: #d1d5db;
+  text-transform: uppercase;
+}
+
+.info-item p {
+  background: #d9d9c8;
+  color: #000;
+  padding: 12px;
+  border-radius: 20px;
+  margin: 4px 0 0;
+  font-weight: bold;
+}
+
+/* HISTÓRICO */
+.historico-item {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 12px;
+  border-radius: 12px;
+  font-size: 14px;
+  color: #fff;
+  transition: 0.2s;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.historico-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transform: scale(1.02);
+}
+
+.historico-item.ativo {
+  background: #d32f2f;
+  color: white;
+}
+
+.toggle {
+  display: flex;
+  background: #FEFEFE;
+  border-radius: 30px;
+  padding: 4px;
+  width: fit-content;
+  margin-bottom: 10px;
+}
+
+.toggle button {
+  border: none;
+  background: transparent;
+  color: #000;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.toggle .ativo {
+  background: #550162;
+  color: #fff;
+}
+
+.spinner {
+  width: 30px;
+  height: 30px;
+  border: 4px solid #ccc;
+  border-top: 4px solid #550162;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
   }
-  &::after {
-    right: 0;
-    border-right-color: var(--border);
-  }
+}
+
+.btn-limpar {
+  background: transparent;
+  border: 1px solid #ff4d4d;
+  color: #ff4d4d;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-limpar:hover {
+  background: #ff4d4d;
+  color: white;
+}
+
+.leaflet-container {
+  height: 300px;
+  width: 100%;
+  border-radius: 12px;
 }
